@@ -1,18 +1,16 @@
-import { Col, Container, Row } from "react-bootstrap";
-import { Outlet } from "react-router-dom";
-import Menu from "../../components/Menu";
+import AdminConteudo from "./AdminConteudo";
+import AdminClientContext from "./context/AdminClientContext";
+import AdminProductContext from "./context/AdminProductContext";
+import AdminUserContext from "./context/AdminUserContext";
 
 export default function Admin() {
     return (
-      <Container>
-        <Row>
-          <Col md={3}>
-            <Menu />
-          </Col>
-          <Col>
-            <Outlet />
-          </Col>
-        </Row>
-      </Container>
+      <AdminUserContext>
+        <AdminClientContext>
+          <AdminProductContext>
+            <AdminConteudo />
+          </AdminProductContext>
+        </AdminClientContext>
+      </AdminUserContext>
     );
 }
